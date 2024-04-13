@@ -1,0 +1,14 @@
+import express from "express";
+import ProductController from "../controllers/product";
+import AuthController from "../controllers/auth";
+const router = express.Router();
+router.get("/", ProductController.fetchAll);
+router.get("/lists", AuthController.accessControl(["customers"]), ProductController.view);
+router.post("/brands", AuthController.accessControl(["customers"]), ProductController.filterBrand);
+router.post("/search", AuthController.accessControl(["customers"]), ProductController.searchProduct);
+router.get("/:id", ProductController.fetchOne);
+router.post("/", AuthController.accessControl(["admin"]), ProductController.create);
+router.put("/:id", AuthController.accessControl(["admin", "super_admin"]), ProductController.update);
+router.param("id", ProductController.validateProduct);
+router.delete("/:id", AuthController.accessControl(["admin"]), ProductController.delete);
+export default router;
