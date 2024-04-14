@@ -2,16 +2,19 @@ import path from "path"
 
 // config used by server side only
 const dbHost = process.env.DB_HOST || "127.0.0.1"
-const dbPort = process.env.DB_PORT || 27017
+const dbPort = process.env.DB_PORT || 5000
 const dbName = process.env.DB_NAME || "sartar"
 const dbUser = process.env.DB_USER || ""
-const dbPass = process.env.DB_PASS || ""
+const dbPass = process.env.DB_PASS || "IatgYjyEc8jqtG14"
 const dbCred =
   dbUser.length > 0 || dbPass.length > 0 ? `${dbUser}:${dbPass}@` : ""
 
-const dbUrl =
-  process.env.DB_URL ||
-  `mongodb://${dbCred}${dbHost}:${dbPort}/${dbName}?authSource=admin`
+// const dbUrl =
+//   process.env.DB_URL ||
+//   `mongodb://${dbCred}${dbHost}:${dbPort}/${dbName}?authSource=admin`
+
+  const dbUrl =
+  process.env.DB_URL || `mongodb+srv://weldetsadik2535:IatgYjyEc8jqtG14@cluster0.tse7o2u.mongodb.net/sartar?retryWrites=true&w=majority&appName=Cluster0`
 
 const PORT = process.env.PORT || 8080
 const API_URL = process.env.API_URL || "127.0.0.1:8080"
