@@ -13,6 +13,7 @@ const dbCred =
 //   process.env.DB_URL ||
 //   `mongodb://${dbCred}${dbHost}:${dbPort}/${dbName}?authSource=admin`
 
+
   const dbUrl =
   process.env.DB_URL || `mongodb+srv://weldetsadik2535:IatgYjyEc8jqtG14@cluster0.tse7o2u.mongodb.net/sartar?retryWrites=true&w=majority&appName=Cluster0`
 
